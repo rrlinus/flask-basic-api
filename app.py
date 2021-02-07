@@ -1,8 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import  Resource, Api, reqparse, abort, fields, marshal_with
-import os
-basedir = os.path.abspath('/')
 app = Flask(__name__)
 api = Api(app)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///sqlite.db'
@@ -69,4 +67,4 @@ class ToDoList(Resource):
 api.add_resource(ToDo,'/todos/<int:todo_id>')
 api.add_resource(ToDoList,'/todos')
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
